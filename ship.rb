@@ -10,15 +10,24 @@ class Fleet
     @ships << @submarine_one = Ship.new("SUBMARINE_ONE", 1)
     @ships << @submarine_one = Ship.new("SUBMARINE_TWO", 1)
   end
+  def find_ship_hit(row,col)
+    ship = @ships.find {|ship| ship.coordinates.include?([row,col])}
+    ship ? ship : false
+  end
+
+  def all_ships_sunk?
+    @ships.all? {|ship| ship.sunk? }
+  end
+
 end
 
 class Ship
-  attr_reader :name, :taken_space, :alive, :coordinates
+  attr_reader :name, :taken_space, :sunk, :coordinates
 
   def initialize(name, length)
     @name = name
     @taken_space = Array.new(length) {"#{name[0].upcase}"}
-    @alive = true
+    @sunk = false
     @coordinates = []
   end
 
@@ -27,6 +36,12 @@ class Ship
   end
 
   def sunk?
-    @coordinates.empty?
+    @sunk = true if @coordinates.empty?
+    @sunk
   end
+
+  def ship_placed?
+    !@coordinates.empty?
+  end
+
 end

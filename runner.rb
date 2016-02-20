@@ -1,10 +1,8 @@
-require_relative 'game'
-require_relative 'board'
-require_relative 'ship'
-require_relative 'view'
+require_relative 'controller'
+controller = Controller.new
 
-view = View.new
-game = Game.new(player_one: "first", player_two: "second")
-
-p game
-game.player_one.place_fleet
+# controller.game.player_one.place_fleet
+# p controller.place_fleet(player_one)
+controller.play_game
+controller.play_game
+controller.play_game
