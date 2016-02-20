@@ -1,0 +1,15 @@
+The game is played between two players (one human, one computer).
+Each player has a 10 x 10 board with columns labeled 1 - 10 and rows labeled A - J (see file board.txt).
+Players have their own fleets of ships and arrange them on their own boards.
+Players take turns firing on their opponent's ships, taking as many shots per turn as the number of their unsunk ships.
+Shot locations are called out by referencing board coordinates (e.g., "A3", "B6", etc).
+On a board, shots that miss are represented with a / and hits are represented with an X.
+Opponents must be alerted when a ship is sunk completely.
+Ships are sunk when they've been hit a number of times equal to their size (i.e., the opponent has fired on each board location occupied by the ship).
+
+Ship  Size  Quantity
+Carrier 5 1
+Battleship  4 1
+Cruiser 3 1
+Destroyer 2 2
+Submarine 1 2
